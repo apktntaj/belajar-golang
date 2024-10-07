@@ -2,10 +2,11 @@ package helper
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 	"runtime"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func BenchmarkTable(b *testing.B) {
@@ -65,6 +66,7 @@ func BenchmarkHelloWorldKurniawan(b *testing.B) {
 	}
 }
 
+// Dengan table kita bisa melakukan banyak skenario testing dalam satu function.
 func TestTableHelloWorld(t *testing.T) {
 	tests := []struct {
 		name     string
@@ -121,6 +123,7 @@ func TestSubTest(t *testing.T) {
 	})
 }
 
+// Merangkai kode sebelum atau sesudah testing.
 func TestMain(m *testing.M) {
 	// before
 	fmt.Println("BEFORE UNIT TEST")
@@ -132,6 +135,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestSkip(t *testing.T) {
+	// Bila OS darwin maka testing akan dilewatkan
 	if runtime.GOOS == "darwin" {
 		t.Skip("Can not run on Mac OS")
 	}
@@ -140,6 +144,8 @@ func TestSkip(t *testing.T) {
 	require.Equal(t, "Hello Eko", result, "Result must be 'Hello Eko'")
 }
 
+// Dengan packege assert kita bisa melakukan testing tanpa perlu menggunakan if else
+// Tampilan hasil dari testing juga menarik dengan menggunakan package testify
 func TestHelloWorldRequire(t *testing.T) {
 	result := HelloWorld("Eko")
 	require.Equal(t, "Hello Eko", result, "Result must be 'Hello Eko'")
