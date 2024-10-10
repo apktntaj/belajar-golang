@@ -397,3 +397,15 @@ FROM (SELECT price
 UPDATE products
 SET price=1000000
 WHERE id = 'X0003';
+
+CREATE TABLE cargo_ingo
+(
+    id          int AUTO_INCREMENT PRIMARY KEY,
+    no_bl       VARCHAR(100) NOT NULL,
+    description TEXT,
+    price       INT UNSIGNED NOT NULL,
+    quantity    INT UNSIGNED NOT NULL DEFAULT 0,
+    created_at  TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP
+    PRIMARY KEY (id)
+) ENGINE = InnoDB;
+

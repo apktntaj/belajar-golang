@@ -1,0 +1,3 @@
+belajar-mysql-dasar || https://docs.google.com/presentation/d/1v4HllRI-BNj4EdJFLh4_jISq_dcosHoAVo5-LME-ghY/edit\?usp\=sharing
+belajar-golang-modules || https://docs.google.com/presentation/d/1nzeNb7w_F4_yA-9C95EYCrggObhQWt9WronMuhIG5LE/edit\#slide\=id.p
+belajar-golang-unit-test || https://docs.google.com/presentation/d/1XxMEaA-JsPHr9BUw2oIOPlEL_psI3EaUFUpuvdlDB_Q/edit\?usp\=sharing
