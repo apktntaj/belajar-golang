@@ -2,5 +2,7 @@ package main
 
 func main() {
 	// HelloWorld()
-	ExcerciseArgs3()
+	// ExcerciseArgs3()
+	DupLinesV2()
+
 }
