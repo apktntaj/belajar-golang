@@ -1,6 +1,6 @@
 # WHAT I LEARN
 
-### Duplicate Lines Program
+## Duplicate Lines Program
 
 ```go
 func DupLinesV2() {
@@ -45,3 +45,32 @@ Dalam sistem operasi, ada tiga aliran data standar yang digunakan oleh program u
 3. stderr (standard error) – Untuk mengirimkan pesan kesalahan.
 
 Entah kenapa harus dipisah output normal dengan output error.
+
+## io.Copy() & ioutil.ReadAll()
+
+`io.Copy` akan langsung meneruskan `io.Reader` ke `io.Write` tanpa perlu menampung ke dalam array buffer. Sedangkan `ioutio.ReadAll()` menampung terlebih dahulu baru bisa diteruskan.
+
+`io,Copy()` cocok untuk menampilkan file besar atau aliran data seperti unduhan file.
+
+`ioutil.ReadAll()` lebih cocok untuk situasi di mana kamu perlu melakukan parsing JSON, memanipulasi teks, atau memodifikasi data sebelum menampilkannya
+
+```go
+func Fetch() {
+	for _, url := range os.Args[1:] {
+		resp, err := http.Get(url)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Fetch: %v\n", err)
+			os.Exit(1)
+		}
+		defer resp.Body.Close()
+
+		b, err2 := ioutil.ReadAll(resp.Body)
+		// _, err2 := io.Copy(os.Stdout, resp.Body)
+		if err2 != nil {
+			fmt.Fprintf(os.Stderr, "Fetch: reading %s: %v\n", url, err)
+			os.Exit(1)
+		}
+		fmt.Printf("%s", b)
+	}
+}
+```
