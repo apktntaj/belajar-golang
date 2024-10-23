@@ -74,3 +74,16 @@ func Fetch() {
 	}
 }
 ```
+
+## Bencmarking
+
+Kita bisa menghitung lamanya sebuah function menjalankan komputasi dengan cara:
+
+```go
+start := time.Now()
+duration := time.Since(start).Seconds()
+```
+
+## IO.DISCARD
+
+Function `io.Copy(io.DIscard, resp.Body)` akan membaca data dari `resp.Body` dan membuangnya, tetapi tetap melaporkan jumlah byte yang berhasil dibaca.
